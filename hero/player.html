@@ -1,0 +1,127 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Chivo:bold,medium,light,regular|Montserrat:bold,medium,light,regular|Roboto:bold,medium,light,regular|Rubik:bold,medium,light,regular&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="player.css">
+
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+  </nav>
+  <header onClick="togglePlay()">
+    <div class="overlay">
+      <a id = "playpausebutton" class = "playpause"></a>
+    </div>
+    <video id = "ischool_video" class = "video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="iSchoolBannerVideo.mp4" type="video/mp4">
+      <audio id = "ischool_audio" controls autoplay loop><source src="joy.mp3" type = "audio/mp3"></audio>
+
+    </video>
+    <div id = "textvideo" class="container h-100">
+      <div class="d-flex h-100 text-center align-items-center">
+        <div class="w-100 text-white">
+          <h1 class = "videoh1">Welcome to the iSchool</h1>
+          <p class = "videop">Changing the future by engaging the present and preserving the past.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!--<section class="my-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background! The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
+          <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code> class in the CSS.</p>
+          <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the media query at the bottom of the CSS snippet.</p>
+          <p class="mb-0">
+            Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>-->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script>
+    var vid = document.getElementById("ischool_video");
+    var aud = document.getElementById("ischool_audio");
+    var button = document.getElementById("playpausebutton");
+
+    function togglePlay(){
+        if (vid.paused) {
+            vid.play();
+            aud.play();
+            button.style.backgroundImage = "url('https://www.iconsdb.com/icons/preview/white/pause-xxl.png')";
+        }
+        else {
+            vid.pause();
+            aud.pause();
+            button.style.backgroundImage = "url('https://www.iconsdb.com/icons/preview/white/play-xxl.png')";
+        };
+    };
+
+    /*$('.video').parent().click(function () {
+      if($(this).children(".video").get(0).paused){
+          $(this).children(".video").get(0).play();
+          $(this).ghildren(".audio").get(0).play();
+          $(this).getElementById("joy").get(0).play();
+          $(this).children(".playpause").fadeOut();
+      }else{
+         $(this).children(".video").get(0).pause();
+         $(this).children(".audio").get(0).pause();
+         $(this).getElementById("joy").get(0).pause();
+         $(this).children(".playpause").fadeIn();
+          }
+      });
+
+    $('.video').parent().click(function () {
+      if($(this).children(".audio").get(0).paused){
+          $(this).children(".audio").get(0).play();
+      }else{
+         $(this).children(".audio").get(0).pause();
+          }
+      });*/
+
+  </script>
+  </body>
+
+
+  </html>
